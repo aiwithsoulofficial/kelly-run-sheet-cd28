@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Facilitator Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --linen:#F5F0EB;--linen-mid:#EDE8E0;--linen-deep:#E4DDD3;--paper:#FBF8F4;
+  --brown:#3B3229;--brown-mid:#5C4F44;--brown-light:#7A6B5E;
+  --rust:#B7634B;--rust-dark:#A8553D;--rust-soft:#F6E4DC;
+  --sage:#7C8B6F;--sage-dark:#6B7A5F;--sage-pale:#D4DCCA;--blush:#E8D5C0;
+  --amber:#8A5A00;--amber-soft:#F6EBD4;--code:#2E2821;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Inter',Helvetica,Arial,sans-serif;--mono:'JetBrains Mono',Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--linen);color:var(--brown);font-family:var(--sans);font-size:15.5px;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding-inline:16px;padding-block:28px 90px}
+header{display:grid;gap:10px;margin-bottom:22px}
+.eyebrow{justify-self:start;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--sage);padding:5px 12px;border-radius:999px;font-weight:600}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(34px,6vw,50px);line-height:1.02;margin:0}
+h1 em{color:var(--rust);font-style:italic}
+h2{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.1;margin:0}
+h3{font-size:17px;margin:0}
+.meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13.5px;color:var(--brown-light)}
+.meta span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sage);margin-right:8px;vertical-align:2px}
+nav.jump{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:rgba(245,240,235,.95);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--blush);margin:0 -16px 20px;padding:10px 16px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav.jump a{font-size:13px;color:var(--brown-mid);text-decoration:none;padding:6px 12px;border-radius:999px;white-space:nowrap;border:1px solid var(--blush);background:var(--paper)}
+nav.jump a:hover{border-color:var(--rust)}
+section{margin:34px 0}
+.lead{color:var(--brown-mid);max-width:70ch;margin:8px 0 0}
+.now{display:none;background:var(--brown);color:var(--linen);border-radius:14px;padding:14px 18px;margin-bottom:18px;font-size:15px}
+.now b{color:#F3C7B3}
+.flag{background:var(--amber-soft);border-left:4px solid var(--amber);border-radius:10px;padding:12px 16px;font-size:14.5px;margin:12px 0}
+.flag b{color:var(--amber)}
+.warn{background:var(--rust-soft);border-left:4px solid var(--rust);border-radius:10px;padding:12px 16px;font-size:14.5px;margin:12px 0}
+.checklist{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+.checklist li{display:grid;grid-template-columns:22px 1fr;gap:10px;background:var(--paper);border:1px solid var(--blush);border-radius:10px;padding:10px 12px;font-size:14.5px;cursor:pointer}
+.checklist input{margin-top:3px;accent-color:var(--sage);width:16px;height:16px}
+.checklist li.done{opacity:.55;text-decoration:line-through}
+/* timeline */
+.day{display:grid;gap:12px;margin-top:14px}
+.blk{display:grid;grid-template-columns:92px 1fr;gap:16px;background:var(--paper);border:1px solid var(--blush);border-radius:16px;padding:16px 18px}
+.blk>div{min-width:0}
+code{overflow-wrap:anywhere}
+a{color:var(--rust-dark)}
+.blk.brk{background:var(--linen-mid);border-style:dashed;padding:10px 18px;align-items:center}
+.blk.brk .t{font-size:15px}
+.blk.cur{outline:3px solid var(--rust);outline-offset:2px}
+.t{font-family:var(--mono);font-size:15px;font-weight:500;color:var(--rust-dark)}
+.t small{display:block;font-family:var(--sans);font-size:12px;color:var(--brown-light);font-weight:400}
+.blk h3{font-size:18px;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}
+.skill{font-family:var(--mono);font-size:12.5px;color:var(--rust-dark);background:var(--linen);border:1px solid var(--blush);padding:1px 8px;border-radius:999px;white-space:nowrap}
+.out{margin:6px 0 10px;font-size:14.5px;color:var(--sage-dark);font-weight:600}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.col h4{margin:0 0 6px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brown-light)}
+.col ul{margin:0;padding-left:18px;font-size:14.5px;display:grid;gap:5px}
+.say{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.35;color:var(--brown);border-left:3px solid var(--rust);padding:2px 0 2px 12px;margin:8px 0 10px}
+.prompt{font-family:var(--mono);font-size:13px;background:var(--code);color:#F3E9DE;border-radius:8px;padding:9px 12px;margin:6px 0;white-space:pre-wrap;word-break:break-word;position:relative;padding-right:70px}
+.prompt button{position:absolute;right:6px;top:6px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:inherit;font:600 11.5px var(--sans);padding:5px 8px;border-radius:6px;cursor:pointer}
+.stuck{margin-top:10px;font-size:14px;background:var(--linen);border-radius:10px;padding:10px 12px}
+.stuck b{color:var(--rust-dark)}
+@media(max-width:700px){.blk{grid-template-columns:1fr;gap:6px}.cols{grid-template-columns:1fr}}
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--blush);border-radius:12px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:14.5px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--linen-deep);vertical-align:top}
+th{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--brown-light);font-weight:600;background:var(--linen)}
+tr:last-child td{border-bottom:0}
+td code{font-family:var(--mono);font-size:12.5px;background:var(--linen-mid);padding:1px 5px;border-radius:4px}
+/* offer */
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.door{background:var(--paper);border:1px solid var(--blush);border-radius:18px;padding:20px}
+.door.one{border-top:5px solid var(--sage)}.door.two{border-top:5px solid var(--rust)}
+.door .price{font-family:var(--serif);font-size:40px;font-weight:600;line-height:1}
+.door .price small{font-family:var(--sans);font-size:15px;color:var(--brown-light);font-weight:400}
+.door ul{padding-left:18px;margin:10px 0;display:grid;gap:5px;font-size:14.5px}
+@media(max-width:760px){.doors{grid-template-columns:1fr}}
+.foot{margin-top:40px;font-size:12.5px;color:var(--brown-light);border-top:1px solid var(--blush);padding-top:14px}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="eyebrow">Facilitator guide &middot; for Kelly</span>
+  <h1>Master Claude Code <em>in 1 Day</em></h1>
+  <div class="meta"><span>Monday 28 September</span><span>The Nook Collective, Buderim</span><span>You in from 8am</span><span>Start 9am sharp</span><span>Finish 4pm, questions until 5pm</span><span>Everyone installed</span></div>
+</header>
+<div class="now" id="now"></div>
+
+<nav class="jump" aria-label="Sections">
+  <a href="#tonight">Tonight</a><a href="#day">The day</a><a href="#stuck">Where people get stuck</a><a href="#offer">The offer</a><a href="#after">After</a>
+</nav>
+
+<section id="tonight">
+  <h2>Tonight and 8am</h2>
+  <p class="lead">Tick as you go. Ticks are saved on this device.</p>
+  <ul class="checklist" data-key="tonight">
+    <li><input type="checkbox" id="c1"><label for="c1">Run <code>aws-update</code> on your own laptop so your demo has the three new skills: dashboard, rostering, reconciliation.</label></li>
+    <li><input type="checkbox" id="c2"><label for="c2">Payment links ready for the two doors: $497 a month membership and the $10K mentoring (see <a href="#offer">the offer</a>).</label></li>
+    <li><input type="checkbox" id="c3"><label for="c3">Pack: HDMI and USB-C adapters, two power boards, a spare Mac charger, red cards, name cards, your phone charged with Telegram open.</label></li>
+    <li><input type="checkbox" id="c4"><label for="c4">Your demo ready: a short video on your phone to film-to-reel live, and your Telegram bot answering.</label></li>
+    <li><input type="checkbox" id="c5"><label for="c5">8am: test the venue Wi-Fi on your laptop with <code>aws-update</code> (it downloads the pack, so it proves the Wi-Fi handles it). Screen and sound work. Power reaches every seat.</label></li>
+    <li><input type="checkbox" id="c6"><label for="c6">8am: the "What Is Your AIOS?" page open on the big screen: aiwithsoulofficial.github.io/what-is-your-aios</label></li>
+    <li><input type="checkbox" id="c7"><label for="c7">8:30 to 9: as people arrive, laptops open, on the Wi-Fi, plugged in. Nobody starts installing anything yet.</label></li>
+  </ul>
+  <div class="warn"><b>Privacy on the big screen.</b> Your own dashboard shows real customer names, emails and what people owe. On the projector, show only the Today tab, or use the animated example on the AIOS page. Never open the Everyone tab or the reconciliation report in front of the room.</div>
+</section>
+
+<section id="day">
+  <h2>The day</h2>
+  <p class="lead">The flow: build their Foundational Folders, drop their content into the folders, hook all their systems up to Claude, then they watch the magic start to happen. Every block ends with something real done on their own business.</p>
+  <div class="day" id="blocks">
+
+    <div class="blk" data-s="09:00" data-e="09:10"><div class="t">9:00<small>10 min</small></div><div>
+      <h3>Housekeeping</h3>
+      <p class="out">Outcome: everyone is settled, plugged in and knows how the day works.</p>
+      <ul><li>Wi-Fi, toilets, morning tea 10:45, lunch 12:30, afternoon tea 2:45, finish 4pm, and you're here until 5 for questions.</li><li>Red card on the laptop means stuck. We come to you.</li><li>Everything is already installed. Today they use it on their own business.</li><li>Laptop lid stays open and plugged in all day (the magic needs it awake).</li></ul>
+    </div></div>
+
+    <div class="blk" data-s="09:10" data-e="09:25"><div class="t">9:10<small>15 min</small></div><div>
+      <h3>Who's here, and the #1 thing they want today (filmed)</h3>
+      <p class="out">Outcome: a one-minute clip of each person saying who they are and the #1 thing they want to take away. This is the "before" for your proof.</p>
+      <div class="say">"One minute each. Who you are, what your business does, and the number one thing you want to walk out with today. I'm filming, and at 3:40 we'll see if you got it."</div>
+      <ul><li>Film on your phone, landscape, one clip per person. Say their first name at the start so you can match clips later.</li><li>Write each person's #1 thing on the whiteboard. Tick them off through the day.</li></ul>
+    </div></div>
+
+    <div class="blk" data-s="09:25" data-e="09:45"><div class="t">9:25<small>20 min</small></div><div>
+      <h3>What your AIOS is, and three new skills live</h3>
+      <p class="out">Outcome: they know the three parts (their business, the skills, the connections), and they've watched their system upgrade itself.</p>
+      <div class="cols"><div class="col"><h4>You</h4><ul><li>Walk the AIOS page on the big screen: the tells-vs-does cards, the three parts, the skill cards.</li><li>Then the moment: "Since you installed, three new skills landed. Watch this."</li></ul></div>
+      <div class="col"><h4>Them</h4><ul><li>New Terminal window, type:</li></ul><div class="prompt">aws-update</div><ul><li>ALL SET. Then <code>cd ~/My-Business</code> and <code>claude</code>, type <code>/</code> and scroll: business-dashboard, rostering, reconciliation.</li></ul></div></div>
+      <div class="stuck"><b>"command not found: aws-update"</b> Paste the install line instead, it does the same thing: <code>curl -fsSL https://aiwithsoulworkshops.com/install | bash</code>. <b>Windows:</b> re-run step 2 from the laptop setup page.</div>
+    </div></div>
+
+    <div class="blk" data-s="09:45" data-e="10:45"><div class="t">9:45<small>60 min</small></div><div>
+      <h3>Block 1: Build your Foundational Folders <span class="skill">/induction</span></h3>
+      <p class="out">Outcome: their Foundational Folders Kit is filled in: business, offers and prices, customers, voice, proof, FAQs and policies, strategy, brand.</p>
+      <div class="say">"Tell it once and it remembers. Every email, post and reply from today reads this first, so it sounds like you and never makes up a price."</div>
+      <div class="cols"><div class="col"><h4>Them</h4><div class="prompt">/induction</div><ul><li>Answer out loud or typed. Real prices, real offers, real words.</li><li>On a Mac, press Fn twice (or the microphone key) to talk instead of type.</li></ul></div>
+      <div class="col"><h4>Check before moving on</h4><div class="prompt">Read my Foundational Folders Kit back to me in 5 lines. What's missing?</div><ul><li>Fix any wrong price now. It flows into everything after.</li></ul></div></div>
+      <div class="stuck"><b>"It asked me 40 questions":</b> answer the first ten well, then say "that's enough for now, we'll fill the rest from my documents next."</div>
+    </div></div>
+
+    <div class="blk brk" data-s="10:45" data-e="11:00"><div class="t">10:45</div><div><b>Morning tea</b> &middot; 15 min. Crew clears red cards.</div></div>
+
+    <div class="blk" data-s="11:00" data-e="11:45"><div class="t">11:00<small>45 min</small></div><div>
+      <h3>Block 2: Drop your content into the folders</h3>
+      <p class="out">Outcome: their real stuff is in the system: logo, photos, price list, old emails, reviews, videos. Claude uses it all from here on.</p>
+      <div class="cols"><div class="col"><h4>Where things go</h4><ul><li>Logo, headshots, brand photos: <code>Foundational-Folders-Kit/assets</code></li><li>Price list, menus, policies, old newsletters, website text, reviews: drag into <code>Foundational-Folders-Kit</code></li><li>Videos and voice notes to turn into content: <code>content/inbox</code></li><li>Open the folder: <code>open ~/My-Business</code> (Mac)</li></ul></div>
+      <div class="col"><h4>Then Claude files it</h4><div class="prompt">Read everything I just dropped into my Foundational Folders Kit and update the right files: offers, proof (real reviews word for word), FAQs, voice, brand. Show me what you changed.</div><div class="prompt">Set my brand colours and fonts in engine/brand.json from my logo and brand files.</div></div></div>
+      <div class="stuck"><b>Files on Google Drive or Dropbox:</b> download them to the laptop first, then drag them in. <b>Reviews:</b> copy them word for word with the person's name. Never let it rewrite a review.</div>
+    </div></div>
+
+    <div class="blk" data-s="11:45" data-e="12:30"><div class="t">11:45<small>45 min</small></div><div>
+      <h3>Block 3: Hook up your systems <span class="skill">/connect</span> <span class="skill">/business-dashboard</span></h3>
+      <p class="out">Outcome: their real tools plugged into Claude, read-only: payments, CRM, bookings, email and calendar. Their live dashboard opens with their real numbers.</p>
+      <div class="cols"><div class="col"><h4>Them</h4><div class="prompt">/connect I use [Stripe / Xero / GoHighLevel / Cliniko / Gmail / Google Calendar...]. Start with the one I use every day.</div><div class="prompt">/business-dashboard set me up</div><ul><li>Keys go in their .env file, never into the chat.</li><li>Then type <code>my-dashboard</code> in Terminal. It opens at localhost:8765.</li></ul></div>
+      <div class="col"><h4>Also</h4><ul><li>Staff? <code>/rostering</code> builds next week's roster.</li><li>Bank statement CSV to hand? <code>/reconciliation</code> matches it to their payments.</li><li>No key today? Export a CSV from the tool and drop it into <code>My-Business/data</code>. It shows on the dashboard straight away.</li></ul></div></div>
+      <div class="stuck"><b>Stripe:</b> a restricted key with Read on balance, charges, payouts and invoices. <b>Xero:</b> a Custom Connection can cost money, so use a CSV export today. <b>GoHighLevel:</b> Settings, Private Integrations, read-only scopes. <b>Windows:</b> the dashboard runs with <code>python dashboard.py serve --open</code> inside <code>.system\business</code>.</div>
+    </div></div>
+
+    <div class="blk brk" data-s="12:30" data-e="13:00"><div class="t">12:30</div><div><b>Lunch</b> &middot; 30 min. Crew clears red cards. Everyone films a 30-second clip on their phone for after lunch.</div></div>
+
+    <div class="blk" data-s="13:00" data-e="14:00"><div class="t">1:00<small>60 min</small></div><div>
+      <h3>The magic, part 1: content edited and planned <span class="skill">/create-content</span> <span class="skill">/social-scheduler</span></h3>
+      <p class="out">Outcome: a real captioned reel of them in their brand colours, plus next week's posts planned.</p>
+      <div class="say">"You film it. Claude edits it."</div>
+      <div class="cols"><div class="col"><h4>Them</h4><ul><li>AirDrop the lunch clip into <code>content/inbox</code>.</li></ul><div class="prompt">/create-content</div></div>
+      <div class="col"><h4>While it renders</h4><div class="prompt">/social-scheduler plan next week's posts from this video and my Foundational Folders Kit</div><ul><li>Nothing posts by itself. They post from the finished folder.</li></ul></div></div>
+      <div class="stuck"><b>Renders are slow.</b> The first one can take a few minutes. Plan the week while it runs. <b>No clip?</b> A voice note and <code>/voice-to-content</code>.</div>
+    </div></div>
+
+    <div class="blk" data-s="14:00" data-e="14:45"><div class="t">2:00<small>45 min</small></div><div>
+      <h3>The magic, part 2: words and customers <span class="skill">/sales-marketing-genius</span> <span class="skill">/ai-support-agent</span> <span class="skill">/pre-call-brief</span></h3>
+      <p class="out">Outcome: this week's email written in their voice, three real enquiries answered, and a brief on someone they're meeting.</p>
+      <div class="cols"><div class="col"><h4>Them</h4><div class="prompt">Write this week's email to my list about [their offer]. Then /hook 5 subject lines, then /stoptheslop it.</div><div class="prompt">/ai-support-agent here are 3 messages from my inbox: [paste]. Draft replies.</div></div>
+      <div class="col"><h4>With their tools connected</h4><div class="prompt">Who owes me money right now, and who should I chase first? Draft the chase email, don't send it.</div><div class="prompt">/pre-call-brief I'm meeting [name, business, website] this week.</div><ul><li>It drafts, they send. Nothing goes to a customer without their yes.</li></ul></div></div>
+    </div></div>
+
+    <div class="blk brk" data-s="14:45" data-e="15:00"><div class="t">2:45</div><div><b>Afternoon tea</b> &middot; 15 min.</div></div>
+
+    <div class="blk" data-s="15:00" data-e="15:40"><div class="t">3:00<small>40 min</small></div><div>
+      <h3>The magic, part 3: run it from your phone</h3>
+      <p class="out">Outcome: they send a voice note from their phone and get the finished job back, and tomorrow's 7am brief is set.</p>
+      <div class="cols"><div class="col"><h4>Them (Mac)</h4><ul><li>Telegram on their phone, search <b>@BotFather</b>, send <code>/newbot</code>, give it a name ending in "bot". Copy the key it gives them.</li></ul><div class="prompt">bash ~/My-Business/.system/telegram/setup-telegram.sh</div><ul><li>Paste the key when asked, then message their bot "hello".</li></ul></div>
+      <div class="col"><h4>The moment</h4><ul><li>Voice note to the bot: "What came in today, and what's on tomorrow?"</li><li>Then set tomorrow's brief:</li></ul><div class="prompt">my-dashboard schedule 7am</div><ul><li>The laptop has to be on and awake for any of this. Say it plainly.</li></ul></div></div>
+      <div class="stuck"><b>Bot doesn't answer:</b> the setup script wasn't run, or the laptop went to sleep. Re-run it. <b>Windows:</b> the Telegram connector is Mac-only for now. Pair them with a Mac owner to watch.</div>
+    </div></div>
+
+    <div class="blk" data-s="15:40" data-e="16:00"><div class="t">3:40<small>20 min</small></div><div>
+      <h3>Did you get your #1 thing? (filmed), then the two doors</h3>
+      <p class="out">Outcome: the "after" clip for your proof, and the next step offered to everyone.</p>
+      <ul><li>Same order as the morning, 30 seconds each on camera: "This morning you said [their #1 thing]. Did you get it? Show me." Tick the whiteboard.</li><li>Two or three show their reel, email or dashboard on the big screen.</li><li>Then <a href="#offer">the offer</a>: the membership to everyone, the 1:1 to the few.</li><li>Before posting any clip: get their OK to use it. Consent first, every time.</li></ul>
+    </div></div>
+
+    <div class="blk" data-s="16:00" data-e="17:00"><div class="t">4:00<small>to 5pm</small></div><div>
+      <h3>Close, then open floor</h3>
+      <p class="out">Outcome: a group photo, and nobody leaves with something half-working.</p>
+      <ul><li>4:00 official close. Group photo.</li><li>4:00 to 5:00: troubleshooting and questions for anyone who stays. The 1:1 conversations happen here too.</li><li>Anything unfinished: note the name and what's missing. It gets done at the first Tuesday live build.</li></ul>
+    </div></div>
+  </div>
+
+</section>
+
+<section id="stuck">
+  <h2>Where people get stuck</h2>
+  <div class="tw" style="margin-top:12px"><table>
+    <thead><tr><th>What they see</th><th>What it means</th><th>Fix</th></tr></thead>
+    <tbody>
+      <tr><td>command not found: claude</td><td>Installed, but the Mac can't find it</td><td>The "command not found" line from the laptop setup page, then a new Terminal window</td></tr>
+      <tr><td>Claude asks them to log in or upgrade</td><td>No paid Claude plan</td><td>They need Pro or Max. Sign up at claude.ai, then type <code>claude</code> again</td></tr>
+      <tr><td>command not found: aws-update</td><td>Old Terminal window</td><td>Close Terminal, open a new one. Or paste the install line</td></tr>
+      <tr><td>Nothing shows when typing a password</td><td>Normal on a Mac</td><td>Type it anyway, press Enter</td></tr>
+      <tr><td>Video won't render</td><td>Video engine missing</td><td><code>cd ~/My-Business/engine && npm install</code></td></tr>
+      <tr><td>Transcription fails</td><td>Whisper isn't installed (Intel Mac or Windows)</td><td>Use a typed brief today, or add an OpenAI key to .env later</td></tr>
+      <tr><td>Dashboard says "not connected"</td><td>No key in .env yet</td><td>Run <code>/business-dashboard</code> and follow its key steps, or drop a CSV into My-Business/data</td></tr>
+      <tr><td>Telegram bot silent</td><td>Setup not run, or the laptop is asleep</td><td>Run the setup script again. Keep the lid open and plugged in</td></tr>
+      <tr><td>Anything else</td><td>&nbsp;</td><td>In Claude: "Something isn't working. Check my setup and tell me what's missing. Don't change anything yet."</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="offer">
+  <h2>The offer: two doors</h2>
+  <p class="lead">Straight after the room sees its own results. Everyone hears door one. Door two is for the two or three who want you building beside them.</p>
+  <div class="doors">
+    <div class="door one">
+      <p style="margin:0 0 6px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-dark);font-weight:700">Door one &middot; everyone</p>
+      <h3 style="font-family:var(--serif);font-size:26px">The AIOS Membership</h3>
+      <div class="price">$497 <small>a month</small></div>
+      <ul>
+        <li>Your AIOS keeps getting better: new skills added and existing ones upgraded, delivered with <code>aws-update</code></li>
+        <li>A 90-minute live build session on the first Tuesday evening of every month. Bring what you want built. Next three: Tue 6 Oct, Tue 3 Nov, Tue 1 Dec</li>
+        <li>The Skool group: questions answered, builds shared, recordings of every live session</li>
+      </ul>
+      <div class="say" style="font-size:17px">"This morning your system got three new skills while you watched. That happens every month. And every first Tuesday we build together, live."</div>
+    </div>
+    <div class="door two">
+      <p style="margin:0 0 6px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust-dark);font-weight:700">Door two &middot; the few</p>
+      <h3 style="font-family:var(--serif);font-size:26px">1:1 with Kelly</h3>
+      <div class="price">$10,000</div>
+      <ul>
+        <li>Kelly mentors you 1:1 and builds with you, on your business</li>
+        <li>Everything built is yours. It becomes your IP</li>
+        <li>Membership included for the length of the mentoring (suggested)</li>
+      </ul>
+      <div class="say" style="font-size:17px">"For the two or three of you who want me building beside you. Anything we build is yours to keep. It's your IP, not mine."</div>
+    </div>
+  </div>
+  <div class="flag"><b>Decide before 3:40.</b> For the $10K: how long it runs (for example 3 months), how often you meet, and how many places (suggest 3, so it fits your 25-hour week). Say those three things out loud with the price.</div>
+  <div class="flag"><b>Suggested, your call:</b> their ticket includes 30 days of Skool, so the membership takes over when that runs out. "Join today, your first $497 comes out on Wed 28 Oct when your 30 days are up." Founding members keep $497 for as long as they stay.</div>
+  <div class="flag"><b>Before you say it:</b> a payment link for each door (the $497 as a monthly subscription), and the Skool group ready to add people to. The $10K contract should say in writing that everything built is the client's IP.</div>
+</section>
+
+<section id="after">
+  <h2>After the day</h2>
+  <div class="tw"><table>
+    <thead><tr><th>When</th><th>What</th></tr></thead>
+    <tbody>
+      <tr><td>Mon evening</td><td>Recording and a thank-you email: what they built today, the Skool link, the first Tuesday date</td></tr>
+      <tr><td>Tue 29 Sep to Fri 2 Oct</td><td>1:1 conversations with anyone who put their hand up for door two</td></tr>
+      <tr><td>Tue 6 Oct, evening</td><td>First live build session. Anything left unfinished today gets done here</td></tr>
+      <tr><td>Wed 28 Oct</td><td>Their 30 days of Skool end. Membership from here</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<p class="foot">Built 27 Sep 2026 for Coast Day. The pack is live: 23 skills including the dashboard, rostering and reconciliation. The same guide works for Sydney (Tue 20 Oct) with the date and venue changed.</p>
+</div>
+
+<script>
+(function(){
+  // copy buttons on prompts
+  document.querySelectorAll('.prompt').forEach(function(p){
+    var b=document.createElement('button'); b.type='button'; b.textContent='Copy';
+    b.onclick=function(){var t=p.childNodes[0].textContent.trim();
+      (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1400)}).catch(function(){var r=document.createRange();r.selectNodeContents(p.childNodes[0]);var s=getSelection();s.removeAllRanges();s.addRange(r)});};
+    p.appendChild(b);
+  });
+  // checklist memory
+  var KEY='fg-coast-checks';
+  var st={}; try{st=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  document.querySelectorAll('.checklist input').forEach(function(c){
+    c.checked=!!st[c.id]; c.closest('li').classList.toggle('done',c.checked);
+    c.addEventListener('change',function(){st[c.id]=c.checked; c.closest('li').classList.toggle('done',c.checked); try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}});
+  });
+  // "now" on the day: highlight the current block (Brisbane time, Mon 28 Sep)
+  function tick(){
+    var now=new Date(new Date().toLocaleString('en-US',{timeZone:'Australia/Brisbane'}));
+    var isDay=now.getFullYear()===2026&&now.getMonth()===8&&now.getDate()===28;
+    var hm=('0'+now.getHours()).slice(-2)+':'+('0'+now.getMinutes()).slice(-2);
+    var cur=null;
+    document.querySelectorAll('.blk').forEach(function(b){var on=isDay&&hm>=b.dataset.s&&hm<b.dataset.e; b.classList.toggle('cur',on); if(on) cur=b;});
+    var el=document.getElementById('now');
+    if(cur){var e=cur.dataset.e.split(':'),end=new Date(now);end.setHours(+e[0],+e[1],0,0);var mins=Math.max(0,Math.round((end-now)/60000));
+      el.innerHTML='Right now: <b>'+cur.querySelector('h3,b').textContent.split('/')[0].trim()+'</b> &middot; '+mins+' min left';el.style.display='block';}
+    else el.style.display='none';
+  }
+  tick(); setInterval(tick,30000);
+})();
+</script>
+
+</body>
+</html>
