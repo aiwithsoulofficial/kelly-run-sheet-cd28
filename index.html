@@ -170,7 +170,7 @@ ol.talk{margin:12px 0 0;padding-left:22px;display:grid;gap:8px;font-size:15px}
     <div class="blk" data-s="09:00" data-e="09:10"><div class="t">9:00<small>10 min</small></div><div>
       <h3>Housekeeping</h3>
       <p class="out">Everyone settled, plugged in, and knows how the day runs.</p>
-      <ul><li>Wi-Fi, toilets, the break times, finish at 4pm, and you're staying until 5 for questions.</li><li>If they're stuck, they put the red card on their laptop and someone comes to them.</li><li>Everything is already installed. Today is about using it on their own business.</li><li>Laptop lid open and plugged in all day. Some of the afternoon only works while the laptop is awake.</li></ul>
+      <ul><li>Wi-Fi, toilets, the break times, finish at 4pm, and you're staying until 5 for questions.</li><li>If they're stuck, they put the red card on their laptop and someone comes to them.</li><li>Everything is already installed. Today is about using it on their own business.</li><li><b>Their guide for the day:</b> put the QR on screen, or have them open <b>aiwithsoul.com.au/workshop-day</b> and keep it open all day.</li><li>Laptop lid open and plugged in all day. Some of the afternoon only works while the laptop is awake.</li></ul>
     </div></div>
 
     <div class="blk" data-s="09:10" data-e="09:25"><div class="t">9:10<small>15 min</small></div><div>
@@ -185,7 +185,7 @@ ol.talk{margin:12px 0 0;padding-left:22px;display:grid;gap:8px;font-size:15px}
       <p class="out">They understand what they've got, and watch their system get three new skills in front of them.</p>
       <div class="cols"><div class="col"><h4>You</h4><ul><li>Walk through the AIOS page on the big screen. The talk track is at the bottom of this page, under <a href="#aiostalk">Explaining the AIOS page</a>.</li><li>Then: <i>"Since you installed, three new skills have been added. Watch this."</i></li></ul></div>
       <div class="col"><h4>They type, in Terminal</h4><div class="prompt">aws-update</div><ul><li>This downloads the newest skills. It takes a couple of minutes.</li><li><b>Worked when:</b> the last line says ALL SET.</li></ul><h4 style="margin-top:10px">Then start Claude</h4><div class="prompt">cd ~/My-Business &amp;&amp; claude</div><ul><li>Type <code>/</code> and they'll see the list of skills, including the new business-dashboard, rostering and reconciliation.</li></ul></div></div>
-      <div class="stuck"><b>"command not found: aws-update":</b> Terminal needs to be opened fresh. Close it, open it again, and retry. Or paste the original install line, which does exactly the same thing: <code>curl -fsSL https://aiwithsoulworkshops.com/install | bash</code>. <b>Windows:</b> they re-run step 2 on the laptop setup page (aiwithsoul.com.au/laptop-setup).</div>
+      <div class="stuck"><b>"command not found: aws-update":</b> Terminal needs to be opened fresh. Close it, open it again, and retry. Or paste the original install line, which does exactly the same thing: <code>curl -fsSL https://aiwithsoulworkshops.com/install | bash</code>. <b>Windows:</b> they re-run step 2 on the laptop setup page (aiwithsoul.com.au/install-cheatsheet).</div>
     </div></div>
 
     <div class="blk" data-s="09:45" data-e="10:45"><div class="t">9:45<small>60 min</small></div><div>
@@ -263,7 +263,7 @@ ol.talk{margin:12px 0 0;padding-left:22px;display:grid;gap:8px;font-size:15px}
   <div class="tw" style="margin-top:12px"><table>
     <thead><tr><th>What they see</th><th>What it means</th><th>What to do</th></tr></thead>
     <tbody>
-      <tr><td>"command not found: claude"</td><td>Claude is installed, but Terminal can't find it</td><td>Step 1 on the laptop setup page (aiwithsoul.com.au/laptop-setup), then close and reopen Terminal</td></tr>
+      <tr><td>"command not found: claude"</td><td>Claude is installed, but Terminal can't find it</td><td>Step 1 on the laptop setup page (aiwithsoul.com.au/install-cheatsheet), then close and reopen Terminal</td></tr>
       <tr><td>Claude asks them to log in or upgrade</td><td>They don't have a paid Claude plan</td><td>They need Claude Pro or Max. Sign up at claude.ai, then type <code>claude</code> again</td></tr>
       <tr><td>"command not found: aws-update"</td><td>Terminal was open before the install</td><td>Close Terminal, open it again. Or paste the install line</td></tr>
       <tr><td>Nothing appears when typing a password</td><td>Normal on a Mac. It's hidden on purpose</td><td>Type it anyway and press Enter</td></tr>
