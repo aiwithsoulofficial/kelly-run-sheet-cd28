@@ -82,181 +82,255 @@ td code{font-family:var(--mono);font-size:12.5px;background:var(--linen-mid);pad
 .door ul{padding-left:18px;margin:10px 0;display:grid;gap:5px;font-size:14.5px}
 @media(max-width:760px){.doors{grid-template-columns:1fr}}
 .foot{margin-top:40px;font-size:12.5px;color:var(--brown-light);border-top:1px solid var(--blush);padding-top:14px}
+
+.plain{margin:10px 0 0;padding-left:20px;display:grid;gap:6px;font-size:15px}
+dl.gl{display:grid;grid-template-columns:180px 1fr;gap:0;margin:14px 0 0;background:var(--paper);border:1px solid var(--blush);border-radius:14px;overflow:hidden}
+dl.gl dt{padding:11px 14px;font-weight:600;border-bottom:1px solid var(--linen-deep);background:var(--linen)}
+dl.gl dd{margin:0;padding:11px 14px;border-bottom:1px solid var(--linen-deep);font-size:14.5px;color:var(--brown-mid)}
+@media(max-width:600px){dl.gl{grid-template-columns:1fr}dl.gl dt{border-bottom:0}}
+.small{font-size:13.5px;color:var(--brown-light);margin:6px 0}
+ol.talk{margin:12px 0 0;padding-left:22px;display:grid;gap:8px;font-size:15px}
 </style>
 
 </head>
 <body>
 <div class="wrap">
 <header>
-  <span class="eyebrow">Facilitator guide &middot; for Kelly</span>
+  <span class="eyebrow">Your guide for the day &middot; only you see this</span>
   <h1>Master Claude Code <em>in 1 Day</em></h1>
-  <div class="meta"><span>Monday 28 September</span><span>The Nook Collective, Buderim</span><span>You in from 8am</span><span>Start 9am sharp</span><span>Finish 4pm, questions until 5pm</span><span>Everyone installed</span></div>
+  <div class="meta"><span>Monday 28 September</span><span>The Nook Collective, Buderim</span><span>You arrive 8am</span><span>Start 9am sharp</span><span>Finish 4pm, then questions until 5pm</span></div>
 </header>
 <div class="now" id="now"></div>
 
 <nav class="jump" aria-label="Sections">
-  <a href="#tonight">Tonight</a><a href="#day">The day</a><a href="#stuck">Where people get stuck</a><a href="#offer">The offer</a><a href="#after">After</a>
+  <a href="#how">How to use this</a><a href="#words">Word list</a><a href="#check">Check these first</a><a href="#tonight">Tonight</a><a href="#day">The day</a><a href="#stuck">If someone is stuck</a><a href="#offer">The offer</a><a href="#after">After</a>
 </nav>
 
-<section id="tonight">
-  <h2>Tonight and 8am</h2>
-  <p class="lead">Tick as you go. Ticks are saved on this device.</p>
-  <ul class="checklist" data-key="tonight">
-    <li><input type="checkbox" id="c1"><label for="c1">Run <code>aws-update</code> on your own laptop so your demo has the three new skills: dashboard, rostering, reconciliation.</label></li>
-    <li><input type="checkbox" id="c2"><label for="c2">Payment links ready for the two doors: $497 a month membership and the $10K mentoring (see <a href="#offer">the offer</a>).</label></li>
-    <li><input type="checkbox" id="c3"><label for="c3">Pack: HDMI and USB-C adapters, two power boards, a spare Mac charger, red cards, name cards, your phone charged with Telegram open.</label></li>
-    <li><input type="checkbox" id="c4"><label for="c4">Your demo ready: a short video on your phone to film-to-reel live, and your Telegram bot answering.</label></li>
-    <li><input type="checkbox" id="c5"><label for="c5">8am: test the venue Wi-Fi on your laptop with <code>aws-update</code> (it downloads the pack, so it proves the Wi-Fi handles it). Screen and sound work. Power reaches every seat.</label></li>
-    <li><input type="checkbox" id="c6"><label for="c6">8am: the "What Is Your AIOS?" page open on the big screen: aiwithsoulofficial.github.io/what-is-your-aios</label></li>
-    <li><input type="checkbox" id="c7"><label for="c7">8:30 to 9: as people arrive, laptops open, on the Wi-Fi, plugged in. Nobody starts installing anything yet.</label></li>
+<section id="how">
+  <h2>How to use this page</h2>
+  <p class="lead">Keep this open on your phone or iPad at the front of the room. On Monday, the block you're in gets a rust outline and a "Right now" bar appears at the top with the minutes left.</p>
+  <ul class="plain">
+    <li><b>Grey text boxes</b> are exact words people type. Tap <b>Copy</b> to copy one, then paste it into the group chat or on screen.</li>
+    <li>Everything inside <b>"quote marks in italics"</b> is a line you can say out loud, word for word, if you want to.</li>
+    <li>Every block tells you what it's for, what they do, how you'll know it worked, and what to do if it doesn't.</li>
   </ul>
-  <div class="warn"><b>Privacy on the big screen.</b> Your own dashboard shows real customer names, emails and what people owe. On the projector, show only the Today tab, or use the animated example on the AIOS page. Never open the Everyone tab or the reconciliation report in front of the room.</div>
+</section>
+
+<section id="words">
+  <h2>Word list</h2>
+  <p class="lead">The technical words used on this page, in plain English.</p>
+  <dl class="gl">
+    <dt>Terminal</dt><dd>The Mac app where people type commands. Open it with Cmd + Space, type "Terminal", press Enter. On Windows the same thing is called PowerShell.</dd>
+    <dt>Claude Code</dt><dd>Claude running on their own laptop. They start it by typing <code>claude</code> in Terminal. It can open, write and save files, which the chat website can't.</dd>
+    <dt>My-Business folder</dt><dd>The folder the install made on their laptop. Everything about their business lives here. To work in it, they type <code>cd ~/My-Business</code> then <code>claude</code>.</dd>
+    <dt>Skill</dt><dd>A job Claude knows how to do well, like editing a video or writing a follow-up email. They start one by typing a slash and its name, like <code>/induction</code>, or by asking in plain English.</dd>
+    <dt>aws-update</dt><dd>A command that downloads the newest version of all their skills. Since they installed, three new skills have been added: a live dashboard, rostering and reconciliation. This command gets them.</dd>
+    <dt>Foundational Folders Kit</dt><dd>A set of files inside My-Business that describe their business: what they sell and for how much, who buys, how they talk, their reviews, their policies, their brand. Every skill reads these files before it writes anything, so it sounds like them.</dd>
+    <dt>/induction</dt><dd>The skill that fills in the Foundational Folders Kit by interviewing them. They answer out loud or typed.</dd>
+    <dt>Key (or API key)</dt><dd>A long password a tool like Stripe or GoHighLevel gives out, so another program can read your data. Each tool has a page in its settings to make one.</dd>
+    <dt>.env file</dt><dd>A private file inside My-Business where keys are pasted. Keys go there, never into the chat with Claude.</dd>
+    <dt>Dashboard</dt><dd>A web page that runs on their own laptop and shows their money, bookings, leads and customers from all their connected tools, in one place. They open it by typing <code>my-dashboard</code> in Terminal.</dd>
+    <dt>CSV export</dt><dd>A spreadsheet download most tools offer (usually under Reports or Export). If a tool can't be connected with a key today, they download a CSV and drag it into the My-Business/data folder instead.</dd>
+    <dt>Telegram and BotFather</dt><dd>Telegram is a free messaging app. BotFather is the official Telegram account that makes a private "bot" (their own chat contact). Once it's set up, they message their bot from their phone and Claude does the job on their laptop.</dd>
+  </dl>
+</section>
+
+<section id="check">
+  <h2>Check these first</h2>
+  <p class="lead">These are things I filled in myself, not things you told me. Change any of them and I'll update the page and the offer pages.</p>
+  <div class="tw"><table>
+    <thead><tr><th>I assumed</th><th>Where it shows up</th></tr></thead>
+    <tbody>
+      <tr><td>The $10K mentorship runs 3 months with 3 places, and six 90-minute sessions (one every fortnight)</td><td>The offer section, the mentorship sales page</td></tr>
+      <tr><td>The membership room bonus is 5 extra skills from your private library, and you choose which 5</td><td>The offer section, the membership sales page</td></tr>
+      <tr><td>The mentorship room bonus is 3 months of membership plus a first session booked this week</td><td>The offer section, the mentorship sales page</td></tr>
+      <tr><td>The first $497 membership payment is taken on Wednesday 28 October, when their included 30 days of Skool end</td><td>The membership sales page (depends on GHL allowing a 30-day trial)</td></tr>
+      <tr><td>After 4pm Monday, the prices go up to $597 a month and $12,000, and both offers close Wednesday 4pm</td><td>Both sales pages switch by themselves at those times</td></tr>
+      <tr><td>You use red cards on laptops so people can show they're stuck without calling out</td><td>Housekeeping</td></tr>
+      <tr><td>You film intros on your phone and write each person's #1 thing on a whiteboard</td><td>9:10 block</td></tr>
+      <tr><td>The Monday times: morning tea 10:45, lunch 12:30, afternoon tea 2:45</td><td>The day</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="tonight">
+  <h2>Tonight, and when you arrive at 8am</h2>
+  <p class="lead">Tick as you go. The ticks are saved on this device.</p>
+  <ul class="checklist" data-key="tonight">
+    <li><input type="checkbox" id="c1"><label for="c1"><b>Update your own laptop.</b> Open Terminal and type <code>aws-update</code>. When it says ALL SET, your laptop has the three new skills too, ready to show on the big screen.</label></li>
+    <li><input type="checkbox" id="c2"><label for="c2"><b>Make the four payment links in GoHighLevel</b> and send them to me, so the sign-up buttons appear on the two offer pages. Details under <a href="#offer">The offer</a>.</label></li>
+    <li><input type="checkbox" id="c3"><label for="c3"><b>Pack:</b> screen adapters (HDMI and USB-C), two power boards, a spare Mac charger, name cards, your phone charged.</label></li>
+    <li><input type="checkbox" id="c4"><label for="c4"><b>Your demo:</b> a short video of you on your phone (for the 1pm content block), and your own Telegram bot answering you.</label></li>
+    <li><input type="checkbox" id="c5"><label for="c5"><b>8am, test the Wi-Fi:</b> run <code>aws-update</code> on your laptop on the venue Wi-Fi. If it finishes, the Wi-Fi can handle everyone doing it at 9:25. Check the screen, the sound, and that power reaches every seat.</label></li>
+    <li><input type="checkbox" id="c6"><label for="c6"><b>8am, on the big screen:</b> open the AIOS page, aiwithsoulofficial.github.io/what-is-your-aios</label></li>
+    <li><input type="checkbox" id="c7"><label for="c7"><b>8:30 to 9, as people arrive:</b> laptops open, on the Wi-Fi, plugged in. Nothing else yet.</label></li>
+  </ul>
+  <div class="warn"><b>Keep customer names off the big screen.</b> Your own dashboard shows real customers, their emails and what they owe you. If you show it, stay on the "Today" tab. Never open the "Everyone" tab or a reconciliation report in front of the room.</div>
 </section>
 
 <section id="day">
   <h2>The day</h2>
-  <p class="lead">The flow: build their Foundational Folders, drop their content into the folders, hook all their systems up to Claude, then they watch the magic start to happen. Every block ends with something real done on their own business.</p>
+  <p class="lead">The flow: build their Foundational Folders, drop their own content into the folders, connect all their tools to Claude, then the magic. Every block ends with something real done on their own business.</p>
   <div class="day" id="blocks">
 
     <div class="blk" data-s="09:00" data-e="09:10"><div class="t">9:00<small>10 min</small></div><div>
       <h3>Housekeeping</h3>
-      <p class="out">Outcome: everyone is settled, plugged in and knows how the day works.</p>
-      <ul><li>Wi-Fi, toilets, morning tea 10:45, lunch 12:30, afternoon tea 2:45, finish 4pm, and you're here until 5 for questions.</li><li>Red card on the laptop means stuck. We come to you.</li><li>Everything is already installed. Today they use it on their own business.</li><li>Laptop lid stays open and plugged in all day (the magic needs it awake).</li></ul>
+      <p class="out">Everyone settled, plugged in, and knows how the day runs.</p>
+      <ul><li>Wi-Fi, toilets, the break times, finish at 4pm, and you're staying until 5 for questions.</li><li>If they're stuck, they put the red card on their laptop and someone comes to them.</li><li>Everything is already installed. Today is about using it on their own business.</li><li>Laptop lid open and plugged in all day. Some of the afternoon only works while the laptop is awake.</li></ul>
     </div></div>
 
     <div class="blk" data-s="09:10" data-e="09:25"><div class="t">9:10<small>15 min</small></div><div>
       <h3>Who's here, and the #1 thing they want today (filmed)</h3>
-      <p class="out">Outcome: a one-minute clip of each person saying who they are and the #1 thing they want to take away. This is the "before" for your proof.</p>
-      <div class="say">"One minute each. Who you are, what your business does, and the number one thing you want to walk out with today. I'm filming, and at 3:40 we'll see if you got it."</div>
-      <ul><li>Film on your phone, landscape, one clip per person. Say their first name at the start so you can match clips later.</li><li>Write each person's #1 thing on the whiteboard. Tick them off through the day.</li></ul>
+      <p class="out">A one-minute clip of each person. This is the "before" for your proof video.</p>
+      <div class="say">"One minute each. Who you are, what your business does, and the number one thing you want to walk out with today. I'm filming, and at 3:40 we'll check if you got it."</div>
+      <ul><li>Film each person on your phone, landscape. Ask them to start with their first name, so the clips are easy to match later.</li><li>Write each person's #1 thing on the whiteboard, and tick them off through the day.</li><li>Before you post any clip, ask the person if that's OK.</li></ul>
     </div></div>
 
     <div class="blk" data-s="09:25" data-e="09:45"><div class="t">9:25<small>20 min</small></div><div>
-      <h3>What your AIOS is, and three new skills live</h3>
-      <p class="out">Outcome: they know the three parts (their business, the skills, the connections), and they've watched their system upgrade itself.</p>
-      <div class="cols"><div class="col"><h4>You</h4><ul><li>Walk the AIOS page on the big screen: the tells-vs-does cards, the three parts, the skill cards.</li><li>Then the moment: "Since you installed, three new skills landed. Watch this."</li></ul></div>
-      <div class="col"><h4>Them</h4><ul><li>New Terminal window, type:</li></ul><div class="prompt">aws-update</div><ul><li>ALL SET. Then <code>cd ~/My-Business</code> and <code>claude</code>, type <code>/</code> and scroll: business-dashboard, rostering, reconciliation.</li></ul></div></div>
-      <div class="stuck"><b>"command not found: aws-update"</b> Paste the install line instead, it does the same thing: <code>curl -fsSL https://aiwithsoulworkshops.com/install | bash</code>. <b>Windows:</b> re-run step 2 from the laptop setup page.</div>
+      <h3>What their AIOS is, and three new skills arrive live</h3>
+      <p class="out">They understand what they've got, and watch their system get three new skills in front of them.</p>
+      <div class="cols"><div class="col"><h4>You</h4><ul><li>Walk through the AIOS page on the big screen. The talk track is at the bottom of this page, under <a href="#aiostalk">Explaining the AIOS page</a>.</li><li>Then: <i>"Since you installed, three new skills have been added. Watch this."</i></li></ul></div>
+      <div class="col"><h4>They type, in Terminal</h4><div class="prompt">aws-update</div><ul><li>This downloads the newest skills. It takes a couple of minutes.</li><li><b>Worked when:</b> the last line says ALL SET.</li></ul><h4 style="margin-top:10px">Then start Claude</h4><div class="prompt">cd ~/My-Business &amp;&amp; claude</div><ul><li>Type <code>/</code> and they'll see the list of skills, including the new business-dashboard, rostering and reconciliation.</li></ul></div></div>
+      <div class="stuck"><b>"command not found: aws-update":</b> Terminal needs to be opened fresh. Close it, open it again, and retry. Or paste the original install line, which does exactly the same thing: <code>curl -fsSL https://aiwithsoulworkshops.com/install | bash</code>. <b>Windows:</b> they re-run step 2 on the laptop setup page (aiwithsoul.com.au/laptop-setup).</div>
     </div></div>
 
     <div class="blk" data-s="09:45" data-e="10:45"><div class="t">9:45<small>60 min</small></div><div>
-      <h3>Block 1: Build your Foundational Folders <span class="skill">/induction</span></h3>
-      <p class="out">Outcome: their Foundational Folders Kit is filled in: business, offers and prices, customers, voice, proof, FAQs and policies, strategy, brand.</p>
-      <div class="say">"Tell it once and it remembers. Every email, post and reply from today reads this first, so it sounds like you and never makes up a price."</div>
-      <div class="cols"><div class="col"><h4>Them</h4><div class="prompt">/induction</div><ul><li>Answer out loud or typed. Real prices, real offers, real words.</li><li>On a Mac, press Fn twice (or the microphone key) to talk instead of type.</li></ul></div>
-      <div class="col"><h4>Check before moving on</h4><div class="prompt">Read my Foundational Folders Kit back to me in 5 lines. What's missing?</div><ul><li>Fix any wrong price now. It flows into everything after.</li></ul></div></div>
-      <div class="stuck"><b>"It asked me 40 questions":</b> answer the first ten well, then say "that's enough for now, we'll fill the rest from my documents next."</div>
+      <h3>Block 1: Build their Foundational Folders</h3>
+      <p class="out">Claude knows their business: what they sell and for how much, who buys, how they talk, their reviews and policies.</p>
+      <div class="say">"Tell it once and it remembers. Every email, post and reply from now on reads this first, so it sounds like you and never makes up a price."</div>
+      <div class="cols"><div class="col"><h4>They type, in Claude</h4><div class="prompt">/induction</div><ul><li>Claude interviews them. They can answer by talking: on a Mac, press the Fn key twice (or the microphone key) to dictate.</li><li>Real prices, real offers, real words. Not what they wish it was.</li></ul></div>
+      <div class="col"><h4>Check it worked</h4><div class="prompt">Read my Foundational Folders Kit back to me in 5 lines. What's missing?</div><ul><li><b>Worked when:</b> Claude reads back their business correctly. Fix any wrong price now, because every later block uses it.</li></ul></div></div>
+      <div class="stuck"><b>"It's asking me too many questions":</b> answer the first ten properly, then say "that's enough for now, we'll fill the rest from my documents next." The 11am block fills the gaps.</div>
     </div></div>
 
-    <div class="blk brk" data-s="10:45" data-e="11:00"><div class="t">10:45</div><div><b>Morning tea</b> &middot; 15 min. Crew clears red cards.</div></div>
+    <div class="blk brk" data-s="10:45" data-e="11:00"><div class="t">10:45</div><div><b>Morning tea</b> &middot; 15 min. Go round the red cards.</div></div>
 
     <div class="blk" data-s="11:00" data-e="11:45"><div class="t">11:00<small>45 min</small></div><div>
-      <h3>Block 2: Drop your content into the folders</h3>
-      <p class="out">Outcome: their real stuff is in the system: logo, photos, price list, old emails, reviews, videos. Claude uses it all from here on.</p>
-      <div class="cols"><div class="col"><h4>Where things go</h4><ul><li>Logo, headshots, brand photos: <code>Foundational-Folders-Kit/assets</code></li><li>Price list, menus, policies, old newsletters, website text, reviews: drag into <code>Foundational-Folders-Kit</code></li><li>Videos and voice notes to turn into content: <code>content/inbox</code></li><li>Open the folder: <code>open ~/My-Business</code> (Mac)</li></ul></div>
-      <div class="col"><h4>Then Claude files it</h4><div class="prompt">Read everything I just dropped into my Foundational Folders Kit and update the right files: offers, proof (real reviews word for word), FAQs, voice, brand. Show me what you changed.</div><div class="prompt">Set my brand colours and fonts in engine/brand.json from my logo and brand files.</div></div></div>
-      <div class="stuck"><b>Files on Google Drive or Dropbox:</b> download them to the laptop first, then drag them in. <b>Reviews:</b> copy them word for word with the person's name. Never let it rewrite a review.</div>
+      <h3>Block 2: Drop their own content into the folders</h3>
+      <p class="out">Their real material is in the system: logo, photos, price list, old emails, reviews, videos.</p>
+      <div class="cols"><div class="col"><h4>Where things go</h4><ul><li>To open the folder on a Mac, type <code>open ~/My-Business</code> in Terminal. It opens in Finder.</li><li><b>Logo and photos:</b> the "assets" folder inside Foundational-Folders-Kit.</li><li><b>Price lists, policies, old newsletters, website text, reviews:</b> straight into Foundational-Folders-Kit.</li><li><b>Videos and voice notes to turn into posts:</b> content, then inbox.</li></ul></div>
+      <div class="col"><h4>Then Claude sorts it, in Claude</h4><div class="prompt">Read everything I just dropped into my Foundational Folders Kit and update the right files: offers, proof (real reviews word for word), FAQs, voice and brand. Show me what you changed.</div><div class="prompt">Set my brand colours and fonts for my videos from my logo and brand files.</div><ul><li><b>Worked when:</b> Claude lists what it updated, and the prices and reviews match their real ones.</li></ul></div></div>
+      <div class="stuck"><b>Files are in Google Drive or Dropbox:</b> download them to the laptop first, then drag them in. <b>Reviews:</b> copied word for word with the person's name. Claude must never rewrite a review.</div>
     </div></div>
 
     <div class="blk" data-s="11:45" data-e="12:30"><div class="t">11:45<small>45 min</small></div><div>
-      <h3>Block 3: Hook up your systems <span class="skill">/connect</span> <span class="skill">/business-dashboard</span></h3>
-      <p class="out">Outcome: their real tools plugged into Claude, read-only: payments, CRM, bookings, email and calendar. Their live dashboard opens with their real numbers.</p>
-      <div class="cols"><div class="col"><h4>Them</h4><div class="prompt">/connect I use [Stripe / Xero / GoHighLevel / Cliniko / Gmail / Google Calendar...]. Start with the one I use every day.</div><div class="prompt">/business-dashboard set me up</div><ul><li>Keys go in their .env file, never into the chat.</li><li>Then type <code>my-dashboard</code> in Terminal. It opens at localhost:8765.</li></ul></div>
-      <div class="col"><h4>Also</h4><ul><li>Staff? <code>/rostering</code> builds next week's roster.</li><li>Bank statement CSV to hand? <code>/reconciliation</code> matches it to their payments.</li><li>No key today? Export a CSV from the tool and drop it into <code>My-Business/data</code>. It shows on the dashboard straight away.</li></ul></div></div>
-      <div class="stuck"><b>Stripe:</b> a restricted key with Read on balance, charges, payouts and invoices. <b>Xero:</b> a Custom Connection can cost money, so use a CSV export today. <b>GoHighLevel:</b> Settings, Private Integrations, read-only scopes. <b>Windows:</b> the dashboard runs with <code>python dashboard.py serve --open</code> inside <code>.system\business</code>.</div>
+      <h3>Block 3: Connect their tools to Claude</h3>
+      <p class="out">At least one real tool (usually payments or their CRM) connected, and their live dashboard open with their own numbers.</p>
+      <div class="say">"Right now your money, leads and bookings live in different places. This puts them in one place Claude can read. It can only look, never change anything."</div>
+      <div class="cols"><div class="col"><h4>They type, in Claude</h4><div class="prompt">/business-dashboard set me up. I use [Stripe / Xero / GoHighLevel / Cliniko].</div><ul><li>Claude walks them through getting a key from that tool's settings, one tool at a time, and tells them exactly where to paste it (the .env file).</li><li>Start with the tool they use every day. One is enough for today.</li></ul></div>
+      <div class="col"><h4>Then open the dashboard</h4><ul><li>In Terminal, type <code>my-dashboard</code>. It opens a page in their web browser.</li><li><b>Worked when:</b> they see their own money, bookings or leads on the page.</li><li><b>If they have staff:</b> <code>/rostering</code> builds next week's roster.</li><li><b>If they have a bank statement download:</b> <code>/reconciliation</code> checks their payments add up.</li></ul></div></div>
+      <div class="stuck"><b>Can't find the key page, or no login today:</b> they export a spreadsheet (CSV) from the tool instead and drag it into My-Business, then data. It shows on the dashboard straight away. <b>Xero:</b> its connection can cost money, so use a spreadsheet export today. <b>Windows:</b> the dashboard is Mac-first. Pair them with a Mac owner to watch.</div>
     </div></div>
 
-    <div class="blk brk" data-s="12:30" data-e="13:00"><div class="t">12:30</div><div><b>Lunch</b> &middot; 30 min. Crew clears red cards. Everyone films a 30-second clip on their phone for after lunch.</div></div>
+    <div class="blk brk" data-s="12:30" data-e="13:00"><div class="t">12:30</div><div><b>Lunch</b> &middot; 30 min. Go round the red cards. Ask everyone to film a 30-second video on their phone answering a question their customers always ask. They'll use it at 1pm.</div></div>
 
     <div class="blk" data-s="13:00" data-e="14:00"><div class="t">1:00<small>60 min</small></div><div>
-      <h3>The magic, part 1: content edited and planned <span class="skill">/create-content</span> <span class="skill">/social-scheduler</span></h3>
-      <p class="out">Outcome: a real captioned reel of them in their brand colours, plus next week's posts planned.</p>
+      <h3>The magic, part 1: their video becomes a finished post</h3>
+      <p class="out">A real, captioned video of them in their brand colours, plus next week's posts planned.</p>
       <div class="say">"You film it. Claude edits it."</div>
-      <div class="cols"><div class="col"><h4>Them</h4><ul><li>AirDrop the lunch clip into <code>content/inbox</code>.</li></ul><div class="prompt">/create-content</div></div>
-      <div class="col"><h4>While it renders</h4><div class="prompt">/social-scheduler plan next week's posts from this video and my Foundational Folders Kit</div><ul><li>Nothing posts by itself. They post from the finished folder.</li></ul></div></div>
-      <div class="stuck"><b>Renders are slow.</b> The first one can take a few minutes. Plan the week while it runs. <b>No clip?</b> A voice note and <code>/voice-to-content</code>.</div>
+      <div class="cols"><div class="col"><h4>They do</h4><ul><li>Send the lunch video from their phone to their laptop (AirDrop on iPhone and Mac), and drag it into My-Business, then content, then inbox.</li></ul><h4 style="margin-top:8px">Then type, in Claude</h4><div class="prompt">/create-content</div><ul><li>It finds the best part, adds moving captions in their colours, writes the caption and makes a cover.</li></ul></div>
+      <div class="col"><h4>While the video renders</h4><div class="prompt">/social-scheduler plan next week's posts from this video and my Foundational Folders Kit</div><ul><li><b>Worked when:</b> a finished video file appears in My-Business, then content, then finished.</li><li>Nothing posts by itself. They post it when they're happy.</li></ul></div></div>
+      <div class="stuck"><b>The video takes a while:</b> the first one can take a few minutes. That's normal. <b>No video:</b> record a voice note instead and use <code>/voice-to-content</code>.</div>
     </div></div>
 
     <div class="blk" data-s="14:00" data-e="14:45"><div class="t">2:00<small>45 min</small></div><div>
-      <h3>The magic, part 2: words and customers <span class="skill">/sales-marketing-genius</span> <span class="skill">/ai-support-agent</span> <span class="skill">/pre-call-brief</span></h3>
-      <p class="out">Outcome: this week's email written in their voice, three real enquiries answered, and a brief on someone they're meeting.</p>
-      <div class="cols"><div class="col"><h4>Them</h4><div class="prompt">Write this week's email to my list about [their offer]. Then /hook 5 subject lines, then /stoptheslop it.</div><div class="prompt">/ai-support-agent here are 3 messages from my inbox: [paste]. Draft replies.</div></div>
-      <div class="col"><h4>With their tools connected</h4><div class="prompt">Who owes me money right now, and who should I chase first? Draft the chase email, don't send it.</div><div class="prompt">/pre-call-brief I'm meeting [name, business, website] this week.</div><ul><li>It drafts, they send. Nothing goes to a customer without their yes.</li></ul></div></div>
+      <h3>The magic, part 2: emails, enquiries and money</h3>
+      <p class="out">This week's email written in their voice, real enquiries answered, and a real question about their money answered from their own tools.</p>
+      <div class="cols"><div class="col"><h4>They type, in Claude</h4><div class="prompt">Write this week's email to my customers about [their offer]. Then give me 5 subject lines, then check it doesn't sound like AI.</div><div class="prompt">/ai-support-agent here are 3 messages from my inbox: [paste them]. Draft replies.</div></div>
+      <div class="col"><h4>Using their connected tools</h4><div class="prompt">Who owes me money right now, and who should I chase first? Draft the chase email, don't send it.</div><div class="prompt">/pre-call-brief I'm meeting [name, business, website] this week.</div><ul><li>Claude writes. They send. Nothing goes to a customer without their yes.</li></ul></div></div>
     </div></div>
 
     <div class="blk brk" data-s="14:45" data-e="15:00"><div class="t">2:45</div><div><b>Afternoon tea</b> &middot; 15 min.</div></div>
 
     <div class="blk" data-s="15:00" data-e="15:40"><div class="t">3:00<small>40 min</small></div><div>
-      <h3>The magic, part 3: run it from your phone</h3>
-      <p class="out">Outcome: they send a voice note from their phone and get the finished job back, and tomorrow's 7am brief is set.</p>
-      <div class="cols"><div class="col"><h4>Them (Mac)</h4><ul><li>Telegram on their phone, search <b>@BotFather</b>, send <code>/newbot</code>, give it a name ending in "bot". Copy the key it gives them.</li></ul><div class="prompt">bash ~/My-Business/.system/telegram/setup-telegram.sh</div><ul><li>Paste the key when asked, then message their bot "hello".</li></ul></div>
-      <div class="col"><h4>The moment</h4><ul><li>Voice note to the bot: "What came in today, and what's on tomorrow?"</li><li>Then set tomorrow's brief:</li></ul><div class="prompt">my-dashboard schedule 7am</div><ul><li>The laptop has to be on and awake for any of this. Say it plainly.</li></ul></div></div>
-      <div class="stuck"><b>Bot doesn't answer:</b> the setup script wasn't run, or the laptop went to sleep. Re-run it. <b>Windows:</b> the Telegram connector is Mac-only for now. Pair them with a Mac owner to watch.</div>
+      <h3>The magic, part 3: run it from their phone</h3>
+      <p class="out">They send a voice message from their phone and get the answer back from Claude, and a morning update is set for 7am tomorrow.</p>
+      <div class="cols"><div class="col"><h4>Make their bot (on their phone)</h4><ul><li>Open Telegram, search for <b>@BotFather</b> (the one with the blue tick), send the message <code>/newbot</code>.</li><li>Give it any name, then a username ending in "bot", like SarahsBusinessbot.</li><li>BotFather replies with a long key. Copy it.</li></ul><h4 style="margin-top:8px">Then, in Terminal (Mac)</h4><div class="prompt">bash ~/My-Business/.system/telegram/setup-telegram.sh</div><ul><li>Paste the key when it asks, then follow the steps it shows.</li></ul></div>
+      <div class="col"><h4>The moment</h4><ul><li>They send their bot a voice note: <i>"What came in today, and what's on tomorrow?"</i></li><li><b>Worked when:</b> the bot replies with the answer.</li><li>Then set tomorrow's 7am update, in Terminal:</li></ul><div class="prompt">my-dashboard schedule 7am</div><ul><li>Tell them plainly: the laptop has to be on and awake for this to work.</li></ul></div></div>
+      <div class="stuck"><b>The bot doesn't reply:</b> the setup line wasn't run, or the laptop went to sleep. Run the setup line again with the lid open and plugged in. <b>Windows:</b> this part is Mac-only for now. Pair them with a Mac owner to watch.</div>
     </div></div>
 
     <div class="blk" data-s="15:40" data-e="16:00"><div class="t">3:40<small>20 min</small></div><div>
-      <h3>Did you get your #1 thing? (filmed), then the two doors</h3>
-      <p class="out">Outcome: the "after" clip for your proof, and the next step offered to everyone.</p>
-      <ul><li>Same order as the morning, 30 seconds each on camera: "This morning you said [their #1 thing]. Did you get it? Show me." Tick the whiteboard.</li><li>Two or three show their reel, email or dashboard on the big screen.</li><li>Then <a href="#offer">the offer</a>: the membership to everyone, the 1:1 to the few.</li><li>Before posting any clip: get their OK to use it. Consent first, every time.</li></ul>
+      <h3>"Did you get your #1 thing?" (filmed), then the offer</h3>
+      <p class="out">The "after" clip for your proof video, then the next step offered to the room.</p>
+      <ul><li>Same order as the morning, 30 seconds each: <i>"This morning you said [their #1 thing]. Did you get it? Show me."</i> Tick the whiteboard.</li><li>Two or three people show their video, email or dashboard on the big screen.</li><li>Then put the two-door slide up (the file is in AI_with_Soul, then Workshops, then room-offer-qr) and walk through <a href="#offer">the offer</a>.</li></ul>
     </div></div>
 
     <div class="blk" data-s="16:00" data-e="17:00"><div class="t">4:00<small>to 5pm</small></div><div>
-      <h3>Close, then open floor</h3>
-      <p class="out">Outcome: a group photo, and nobody leaves with something half-working.</p>
-      <ul><li>4:00 official close. Group photo.</li><li>4:00 to 5:00: troubleshooting and questions for anyone who stays. The 1:1 conversations happen here too.</li><li>Anything unfinished: note the name and what's missing. It gets done at the first Tuesday live build.</li></ul>
+      <h3>Close, then questions until 5</h3>
+      <p class="out">A group photo, and nobody leaves with something half-working.</p>
+      <ul><li>4:00: official close and group photo. The room prices end now. The offer pages switch by themselves.</li><li>4:00 to 5:00: help anyone who stays, and have the 1:1 conversations.</li><li>For anything unfinished, write down the name and what's missing. It gets done at the first Tuesday live build.</li></ul>
     </div></div>
   </div>
-
 </section>
 
 <section id="stuck">
-  <h2>Where people get stuck</h2>
+  <h2>If someone is stuck</h2>
   <div class="tw" style="margin-top:12px"><table>
-    <thead><tr><th>What they see</th><th>What it means</th><th>Fix</th></tr></thead>
+    <thead><tr><th>What they see</th><th>What it means</th><th>What to do</th></tr></thead>
     <tbody>
-      <tr><td>command not found: claude</td><td>Installed, but the Mac can't find it</td><td>The "command not found" line from the laptop setup page, then a new Terminal window</td></tr>
-      <tr><td>Claude asks them to log in or upgrade</td><td>No paid Claude plan</td><td>They need Pro or Max. Sign up at claude.ai, then type <code>claude</code> again</td></tr>
-      <tr><td>command not found: aws-update</td><td>Old Terminal window</td><td>Close Terminal, open a new one. Or paste the install line</td></tr>
-      <tr><td>Nothing shows when typing a password</td><td>Normal on a Mac</td><td>Type it anyway, press Enter</td></tr>
-      <tr><td>Video won't render</td><td>Video engine missing</td><td><code>cd ~/My-Business/engine && npm install</code></td></tr>
-      <tr><td>Transcription fails</td><td>Whisper isn't installed (Intel Mac or Windows)</td><td>Use a typed brief today, or add an OpenAI key to .env later</td></tr>
-      <tr><td>Dashboard says "not connected"</td><td>No key in .env yet</td><td>Run <code>/business-dashboard</code> and follow its key steps, or drop a CSV into My-Business/data</td></tr>
-      <tr><td>Telegram bot silent</td><td>Setup not run, or the laptop is asleep</td><td>Run the setup script again. Keep the lid open and plugged in</td></tr>
-      <tr><td>Anything else</td><td>&nbsp;</td><td>In Claude: "Something isn't working. Check my setup and tell me what's missing. Don't change anything yet."</td></tr>
+      <tr><td>"command not found: claude"</td><td>Claude is installed, but Terminal can't find it</td><td>Step 1 on the laptop setup page (aiwithsoul.com.au/laptop-setup), then close and reopen Terminal</td></tr>
+      <tr><td>Claude asks them to log in or upgrade</td><td>They don't have a paid Claude plan</td><td>They need Claude Pro or Max. Sign up at claude.ai, then type <code>claude</code> again</td></tr>
+      <tr><td>"command not found: aws-update"</td><td>Terminal was open before the install</td><td>Close Terminal, open it again. Or paste the install line</td></tr>
+      <tr><td>Nothing appears when typing a password</td><td>Normal on a Mac. It's hidden on purpose</td><td>Type it anyway and press Enter</td></tr>
+      <tr><td>The video won't make</td><td>The video tool didn't finish installing</td><td>In Terminal: <code>cd ~/My-Business/engine &amp;&amp; npm install</code></td></tr>
+      <tr><td>Voice notes aren't turned into text</td><td>The free speech-to-text didn't install (older Intel Macs and Windows)</td><td>Type instead today</td></tr>
+      <tr><td>The dashboard says "not connected"</td><td>No key has been pasted in yet</td><td>In Claude, type <code>/business-dashboard</code> and follow its steps, or use a spreadsheet export</td></tr>
+      <tr><td>The Telegram bot is silent</td><td>Setup wasn't run, or the laptop is asleep</td><td>Run the setup line again with the lid open and plugged in</td></tr>
+      <tr><td>Anything else</td><td>&nbsp;</td><td>In Claude, type: "Something isn't working. Check my setup and tell me what's missing. Don't change anything yet."</td></tr>
     </tbody>
   </table></div>
 </section>
 
 <section id="offer">
   <h2>The offer: two doors</h2>
-  <p class="lead">Straight after the room sees its own results. Everyone hears door one. Door two is for the two or three who want you building beside them.</p>
+  <p class="lead">Put up the two-door slide. It has a QR code for each offer. People scan it with their phone camera and it opens that offer's page, where they sign up. Everyone hears door one. Door two is for the two or three who want you building beside them.</p>
   <div class="doors">
     <div class="door one">
       <p style="margin:0 0 6px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-dark);font-weight:700">Door one &middot; everyone</p>
       <h3 style="font-family:var(--serif);font-size:26px">The AIOS Membership</h3>
-      <div class="price">$497 <small>a month</small></div>
+      <div class="price">$497 <small>a month, in the room</small></div>
       <ul>
-        <li>Your AIOS keeps getting better: new skills added and existing ones upgraded, delivered with <code>aws-update</code></li>
-        <li>A 90-minute live build session on the first Tuesday evening of every month. Bring what you want built. Next three: Tue 6 Oct, Tue 3 Nov, Tue 1 Dec</li>
-        <li>The Skool group: questions answered, builds shared, recordings of every live session</li>
+        <li>New skills and upgrades to their existing skills, every month. They get them by typing <code>aws-update</code></li>
+        <li>A 90-minute live build on the first Tuesday evening of every month. Next three: Tue 6 Oct, Tue 3 Nov, Tue 1 Dec. Recorded for anyone who misses it</li>
+        <li>The Skool group, for questions and every recording</li>
+        <li><b>Room bonus:</b> 5 extra skills from your private library</li>
+        <li>From 4pm: $597 a month, no bonus. Closes Wednesday 4pm</li>
       </ul>
+      <p class="small">Page: aiwithsoul.com.au/aios-membership</p>
       <div class="say" style="font-size:17px">"This morning your system got three new skills while you watched. That happens every month. And every first Tuesday we build together, live."</div>
     </div>
     <div class="door two">
       <p style="margin:0 0 6px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust-dark);font-weight:700">Door two &middot; the few</p>
-      <h3 style="font-family:var(--serif);font-size:26px">1:1 with Kelly</h3>
-      <div class="price">$10,000</div>
+      <h3 style="font-family:var(--serif);font-size:26px">1:1 AI &amp; Marketing Mentorship</h3>
+      <div class="price">$10,000 <small>in the room</small></div>
       <ul>
-        <li>Kelly mentors you 1:1 and builds with you, on your business</li>
-        <li>Everything built is yours. It becomes your IP</li>
-        <li>Membership included for the length of the mentoring (suggested)</li>
+        <li>3 months, 3 places. Six 1:1 build sessions of 90 minutes, one every fortnight, plus messages in between</li>
+        <li>Month 1 builds their whole system, month 2 their marketing, month 3 they run it and you hand it over</li>
+        <li>Everything built for their business is theirs. It's their IP</li>
+        <li><b>Room bonus:</b> 3 months of the membership, and their first session booked this week</li>
+        <li>From 4pm: $12,000, no bonus. Closes Wednesday 4pm</li>
       </ul>
+      <p class="small">Page: aiwithsoul.com.au/aios-mentorship</p>
       <div class="say" style="font-size:17px">"For the two or three of you who want me building beside you. Anything we build is yours to keep. It's your IP, not mine."</div>
     </div>
   </div>
-  <div class="flag"><b>Decide before 3:40.</b> For the $10K: how long it runs (for example 3 months), how often you meet, and how many places (suggest 3, so it fits your 25-hour week). Say those three things out loud with the price.</div>
-  <div class="flag"><b>Suggested, your call:</b> their ticket includes 30 days of Skool, so the membership takes over when that runs out. "Join today, your first $497 comes out on Wed 28 Oct when your 30 days are up." Founding members keep $497 for as long as they stay.</div>
-  <div class="flag"><b>Before you say it:</b> a payment link for each door (the $497 as a monthly subscription), and the Skool group ready to add people to. The $10K contract should say in writing that everything built is the client's IP.</div>
+  <div class="flag"><b>Before the day: the sign-up buttons need payment links.</b> Until you make the four payment links in GoHighLevel (Payments, then Products, then Payment Links: $497 monthly, $597 monthly, $10,000 and $12,000) and send them to me, the offer pages show the offer but have no sign-up button.</div>
+  <div class="flag"><b>Before you sell the $10K:</b> the agreement needs to say in writing that everything built for them is theirs.</div>
+</section>
+
+<section id="aiostalk">
+  <h2>Explaining the AIOS page</h2>
+  <p class="lead">For the 9:25 block. The page: aiwithsoulofficial.github.io/what-is-your-aios</p>
+  <ol class="talk">
+    <li><b>Top.</b> <i>"AIOS means AI Operating System. It's Claude on your laptop that knows your business and does the work."</i></li>
+    <li><b>Section 1.</b> Point at the two boxes. <i>"A chat window tells you things. Your AIOS does them: the email with your real prices, the edited video, and it remembers your business."</i></li>
+    <li><b>Section 2.</b> Scroll the skill cards. <i>"23 jobs it already knows. Type the slash name or just ask."</i> Point at "Run the business": that's your cue for aws-update.</li>
+    <li><b>Section 3.</b> Press play on both examples. <i>"Stacked, the skills run a whole job start to finish."</i></li>
+    <li><b>Section 4.</b> Press "Watch the kit fill up". <i>"This is what we build first today."</i></li>
+    <li><b>Section 5.</b> Play the phone conversation. <i>"This is where you'll be by 3 o'clock."</i></li>
+    <li><b>Section 6.</b> The example dashboard counts up. <i>"Every customer, lead, booking and invoice, from all your tools, on one screen."</i></li>
+  </ol>
 </section>
 
 <section id="after">
@@ -264,15 +338,15 @@ td code{font-family:var(--mono);font-size:12.5px;background:var(--linen-mid);pad
   <div class="tw"><table>
     <thead><tr><th>When</th><th>What</th></tr></thead>
     <tbody>
-      <tr><td>Mon evening</td><td>Recording and a thank-you email: what they built today, the Skool link, the first Tuesday date</td></tr>
-      <tr><td>Tue 29 Sep to Fri 2 Oct</td><td>1:1 conversations with anyone who put their hand up for door two</td></tr>
-      <tr><td>Tue 6 Oct, evening</td><td>First live build session. Anything left unfinished today gets done here</td></tr>
-      <tr><td>Wed 28 Oct</td><td>Their 30 days of Skool end. Membership from here</td></tr>
+      <tr><td>Monday evening</td><td>Thank-you email: what they built today, the Skool link, the first Tuesday date</td></tr>
+      <tr><td>Wednesday 4pm</td><td>Both offers close. The pages switch to "closed" by themselves</td></tr>
+      <tr><td>Tue 29 Sep to Fri 2 Oct</td><td>1:1 conversations with anyone who asked about the mentorship</td></tr>
+      <tr><td>Tuesday 6 October, evening</td><td>First live build. Anything unfinished from Monday gets done here</td></tr>
     </tbody>
   </table></div>
 </section>
 
-<p class="foot">Built 27 Sep 2026 for Coast Day. The pack is live: 23 skills including the dashboard, rostering and reconciliation. The same guide works for Sydney (Tue 20 Oct) with the date and venue changed.</p>
+<p class="foot">Updated 27 Sep 2026. The same guide works for Sydney (Tuesday 20 October) with the date and venue changed.</p>
 </div>
 
 <script>
@@ -300,7 +374,7 @@ td code{font-family:var(--mono);font-size:12.5px;background:var(--linen-mid);pad
     document.querySelectorAll('.blk').forEach(function(b){var on=isDay&&hm>=b.dataset.s&&hm<b.dataset.e; b.classList.toggle('cur',on); if(on) cur=b;});
     var el=document.getElementById('now');
     if(cur){var e=cur.dataset.e.split(':'),end=new Date(now);end.setHours(+e[0],+e[1],0,0);var mins=Math.max(0,Math.round((end-now)/60000));
-      el.innerHTML='Right now: <b>'+cur.querySelector('h3,b').textContent.split('/')[0].trim()+'</b> &middot; '+mins+' min left';el.style.display='block';}
+      el.innerHTML='Right now: <b>'+cur.querySelector('h3,b').textContent.trim()+'</b> &middot; '+mins+' min left';el.style.display='block';}
     else el.style.display='none';
   }
   tick(); setInterval(tick,30000);
